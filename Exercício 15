@@ -1,0 +1,41 @@
+"""
+
+Leia uma matriz 5 x 10 que se refere respostas de 10 questões de múltipla escola, referente a 5 alunos. Leia também
+um vetor de 10 posições contendo o gabarito de respostas que podem ser a, b, c ou d. Seu programa deverá comparar as
+respostas de cada candidato com o gabarito e emitir um vetor denominado resultado, contendo a pontuação correspondente
+a cada aluno.
+
+"""
+
+A = [[0 for j in range(11)] for i in range(5)]  # 11 colunas e 5 linhas
+B = ['a', 'b', 'c', 'd', 'a', 'b', 'c', 'd', 'a', 'b']
+erro = 0
+acerto = 0
+
+for i in range(5):
+
+    A[i][0] = input(f'Por favor, informe o nome do aluno {i + 1}: ')
+    A.append(A[i][0])
+
+    for j in range(1, 11):
+        A[i][j] = input(f'Por favor, informe a resposta do aluno {A[i][0]} no item {j}: ')
+        A.append(A[i][j])
+
+for i in range(5):
+    for j in range(1, 11):
+
+        if B[i] == A[i][1:]:
+
+            acerto += 1
+
+        else:
+
+            erro += 1
+
+# ainda não consigo comprar as notas da prova com as notas do gabarito
+
+print(f'O aluno {A[0][0]} Acertou {acerto}')
+print(f'O aluno {A[0][0]} Errou {erro}')
+print()
+for item in range(5):
+    print(A[item])
